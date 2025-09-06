@@ -23,7 +23,7 @@ export default function RoleTable({
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full text-sm">
-        <thead className="bg-slate-200 text-left text-gray-600 text-xs uppercase tracking-wide">
+        <thead className="bg-blue-200 text-left text-gray-600 text-xs uppercase tracking-wide">
           <tr>
             <Th>ID</Th>
             <Th>Nama Role</Th>

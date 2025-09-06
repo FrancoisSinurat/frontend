@@ -9,7 +9,7 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
   return (
     <main
       className={cn(
-        "flex-1 bg-gray-50",
+        "flex-1 ",
         pathname === "/register" && "flex items-center justify-center"
       )}
     >

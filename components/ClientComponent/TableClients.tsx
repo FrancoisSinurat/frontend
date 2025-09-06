@@ -130,7 +130,7 @@ export default function TableClients() {
       </div>
 
       {/* Mobile Card View */}
-      <div className="grid gap-4 md:hidden">
+      <div className="grid gap-4 md:hidden ">
         {current.map((client) => (
           <div
             key={client.id}
@@ -207,7 +207,7 @@ export default function TableClients() {
         <div className="overflow-hidden rounded-2xl bg-white shadow ring-1 ring-gray-100">
           <div className="overflow-x-auto">
             <table className="min-w-full text-sm">
-              <thead className="bg-gray-200 text-left text-gray-600 text-xs uppercase tracking-wide">
+              <thead className="bg-blue-200 text-left text-gray-600 text-xs uppercase tracking-wide">
                 <tr>
                   <Th>ID Klien</Th>
                   <Th>Nama Klien</Th>

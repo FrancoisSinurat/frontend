@@ -73,12 +73,12 @@ export default function RegisterCard() {
   ];
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 via-white to-slate-200 px-4 py-10">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br px-5 py-5">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-4xl"
+        className="w-full max-w-4xl h-screen "
       >
         <Card className="shadow-2xl border border-slate-200 rounded-2xl backdrop-blur bg-white/90 flex flex-col h-[85vh]">
           <CardHeader className="pb-4">

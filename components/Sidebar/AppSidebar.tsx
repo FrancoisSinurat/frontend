@@ -10,7 +10,7 @@ import {
   LogOut,
   PanelRightOpen,
   PanelRightClose,
-  UserPlus
+  UserPlus,
 } from "lucide-react";
 import Link from "next/link";
 import {
@@ -34,60 +34,37 @@ export function AppSidebar() {
   const [collapsed, setCollapsed] = React.useState(false);
 
   return (
-    <>
-      {/* Mobile Sidebar */}
-      <div className="md:hidden">
-        <Sheet>
-          <SheetTrigger asChild>
-            <button className="p-2">
-              <PanelRightOpen className="w-6 h-6 text-gray-700" />
-            </button>
-          </SheetTrigger>
-          {/* ✅ pindah ke kiri */}
-          <SheetContent side="left" className="w-64 p-0 bg-white">
-            <SheetHeader className="p-4 border-b">
-              <SheetTitle className="text-lg font-semibold text-gray-800">
-                TOP User Management
-              </SheetTitle>
-            </SheetHeader>
-            <SidebarContent collapsed={false} />
-          </SheetContent>
-        </Sheet>
-      </div>
-
-      {/* Desktop Sidebar */}
-      <div
-        className={cn(
-          "hidden md:flex flex-col h-screen bg-white shadow-lg border-r border-gray-200 transition-all duration-300 ease-in-out",
-          collapsed ? "w-20" : "w-72"
+    <div
+      className={cn(
+        "flex flex-col h-screen bg-gradient-to-tl from-[#145defe8] to-[#ffffffc6] shadow-lg border-r border-gray-200 transition-all duration-300 ease-in-out",
+        collapsed ? "w-20" : "w-72"
+      )}
+    >
+      {/* Header */}
+      <div className="flex items-center justify-between p-4 border-b border-gray-200">
+        {!collapsed && (
+          <span className="font-bold text-lg text-gray-800 whitespace-nowrap">
+            <Link href="/">TOP User Management</Link>
+          </span>
         )}
-      >
-        {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-gray-200 ">
-          {!collapsed && (
-            <span className="font-bold text-lg text-gray-800 whitespace-nowrap">
-              <Link href="/">TOP User Management</Link>
-            </span>
-          )}
-          {collapsed ? (
-            <PanelRightOpen
-              size={22}
-              className="cursor-pointer text-gray-600 hover:text-gray-900 transition-transform duration-300 ml-2"
-              onClick={() => setCollapsed(false)}
-            />
-          ) : (
-            <PanelRightClose
-              size={22}
-              className="cursor-pointer text-gray-600 hover:text-gray-900 transition-transform duration-300 ml-2"
-              onClick={() => setCollapsed(true)}
-            />
-          )}
-        </div>
-
-        {/* Content */}
-        <SidebarContent collapsed={collapsed} />
+        {collapsed ? (
+          <PanelRightOpen
+            size={22}
+            className="cursor-pointer text-gray-600 hover:text-gray-900 transition-transform duration-300 ml-2"
+            onClick={() => setCollapsed(false)}
+          />
+        ) : (
+          <PanelRightClose
+            size={22}
+            className="cursor-pointer text-gray-600 hover:text-gray-900 transition-transform duration-300 ml-2"
+            onClick={() => setCollapsed(true)}
+          />
+        )}
       </div>
-    </>
+
+      {/* Content */}
+      <SidebarContent collapsed={collapsed} />
+    </div>
   );
 }
 
@@ -120,7 +97,7 @@ function SidebarContent({ collapsed }: { collapsed: boolean }) {
       </nav>
 
       <div className="p-3 border-t border-gray-300">
-        <button className="flex items-center gap-3 px-3 py-2 w-full text-left rounded-lg hover:bg-red-50 text-red-600 transition-colors duration-200 ease-in-out">
+        <button className="flex items-center gap-3 px-3 py-2 w-full text-left rounded-lg hover:bg-gray-50 hover:text-black text-white transition-colors duration-200 ease-in-out">
           <LogOut size={20} />
           {!collapsed && <span className="font-medium">Logout</span>}
         </button>
