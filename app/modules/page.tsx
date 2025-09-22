@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { Plus } from "lucide-react";
-import RoleTable from "@/components/Modul/RoleTable";
-import RoleDetailModal from "@/components/ModalsComponent/RoleDetailModal";
+import RoleTable from "@/components/ModuleComponent/ModuleTable";
+import RoleDetailModal from "@/components/ModalsComponent/ModuleDetailModal";
 import AddRoleModal from "@/components/ModalsComponent/AddModulModal";
 
 type Role = {

@@ -3,7 +3,7 @@
 import React, { useMemo, useState } from "react";
 import { FileText, CheckCircle2, Settings } from "lucide-react";
 
-import RoleDetailModal from "../ModalsComponent/RoleDetailModal";
+import RoleDetailModal from "../ModalsComponent/ModuleDetailModal";
 import VerifModal from "../ModalsComponent/VerifModal";
 
 import Th from "@/components/atoms/Th";
@@ -176,12 +176,17 @@ export default function TableClients() {
                 }
                 color="blue"
               />
-              <ActionIcon
-                icon={<CheckCircle2 className="h-4 w-4" />}
-                label="Verifikasi"
-                onClick={() => setSelectedVerif(client)}
-                color="green"
-              />
+            <ActionIcon
+              icon={<CheckCircle2 className="h-4 w-4" />}
+              label="Verifikasi"
+              onClick={() =>
+                route.push(
+                  `/client/${client.id}/verifikasi?name=${encodeURIComponent(client.name)}&contact=${encodeURIComponent(client.contact)}&date=${encodeURIComponent(client.date || "")}&status=${encodeURIComponent(client.status)}&product=${encodeURIComponent(client.product)}`
+                )
+              }
+              color="green"
+            />
+
               <ActionIcon
                 icon={<Settings className="h-4 w-4" />}
                 label="Setting Roles"
@@ -254,9 +259,14 @@ export default function TableClients() {
                         <ActionIcon
                           icon={<CheckCircle2 className="h-4 w-4" />}
                           label="Verifikasi"
-                          onClick={() => setSelectedVerif(client)}
+                          onClick={() =>
+                            route.push(
+                              `/client/${client.id}/verifikasi?name=${encodeURIComponent(client.name)}&contact=${encodeURIComponent(client.contact)}&date=${encodeURIComponent(client.date || "")}&status=${encodeURIComponent(client.status)}&product=${encodeURIComponent(client.product)}`
+                            )
+                          }
                           color="green"
                         />
+
                         <ActionIcon
                           icon={<Settings className="h-4 w-4" />}
                           label="Setting Roles"
