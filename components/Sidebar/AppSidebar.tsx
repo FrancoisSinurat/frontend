@@ -25,9 +25,10 @@ import { usePathname } from "next/navigation";
 const menuItems = [
   { name: "Dashboard", icon: LayoutDashboard, href: "/dashboard" },
   { name: "Daftar Klien", icon: BookOpen, href: "/client" },
-  { name: "Module", icon: User, href: "/role" },
+  { name: "Module", icon: User, href: "/modules" },
   { name: "Settings", icon: Settings, href: "/settings" },
   { name: "Register", icon: UserPlus, href: "/register" },
+  { name: "Login", icon: UserPlus, href: "/login" },
 ];
 
 export function AppSidebar() {
@@ -36,7 +37,7 @@ export function AppSidebar() {
   return (
     <div
       className={cn(
-        "flex flex-col h-screen bg-gradient-to-tl from-[#145defe8] to-[#ffffffc6] shadow-lg border-r border-gray-200 transition-all duration-300 ease-in-out",
+        "flex flex-col h-screen bg-gradient-to-l from-[#145def67] to-[#ffffffc6] shadow-lg border-r border-gray-200 transition-all duration-300 ease-in-out",
         collapsed ? "w-20" : "w-72"
       )}
     >
@@ -97,11 +98,18 @@ function SidebarContent({ collapsed }: { collapsed: boolean }) {
       </nav>
 
       <div className="p-3 border-t border-gray-300">
-        <button className="flex items-center gap-3 px-3 py-2 w-full text-left rounded-lg hover:bg-gray-50 hover:text-black text-white transition-colors duration-200 ease-in-out">
+        <button className="flex items-center gap-3 px-3 py-2 w-full text-left rounded-lg hover:bg-gray-50 hover:text-black text-black transition-colors duration-200 ease-in-out">
           <LogOut size={20} />
           {!collapsed && <span className="font-medium">Logout</span>}
         </button>
       </div>
+      {/* <div className="p-3 border-t border-white/20">
+        <button className="flex items-center gap-3 px-3 py-2 w-full text-left rounded-lg transition-colors duration-200 ease-in-out text-red-300 hover:text-red-100 hover:bg-red-500/20">
+          <LogOut size={20} />
+          {!collapsed && <span className="font-medium">Logout</span>}
+        </button>
+      </div> */}
+
     </>
   );
 }
